@@ -7,27 +7,26 @@
 </head>
 <body>
 	<script>
+	window.data = null;
 	window.fbAsyncInit = function() {
 		var myToken = null;
 		FB.init({
-			appId      : 'XXXXXXXXXXXXXXXXXXX',
+			appId      : 'XXXXXXXXXXXX',
 			xfbml      : true,
 			version    : 'v2.6'
 		});
 		FB.getLoginStatus(function(response) {
 			if (response.status === 'connected') {
-				console.log('Logged in.');
+				//myToken = FB.getAuthResponse()['accessToken'];
+				FB.api('/search?q=AR15&type=page', function (response) {
+					response.data.forEach(function(d){
+						$(output).append('<li>' + d.name + '</li>');
+					});
+				});
 			}
 			else {
 				FB.login();
 			}
-			myToken = FB.getAuthResponse()['accessToken'];
-			var data = $.get("https://graph.facebook.com/132124696825991?access_token=" + myToken + "&fields=feed", function(data, status){
-				console.log("Data: " + data + "\nStatus: " + status);
-				return data;
-			});
-
-			console.log(data);
 
 		});	
 	};
@@ -41,6 +40,9 @@
 	}(document, 'script', 'facebook-jssdk'));
 
 	</script>
-
+	<div id="output">
+		<ul>
+		</ul>
+	</div>
 </body>
 </html>
