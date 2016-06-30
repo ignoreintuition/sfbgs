@@ -1,0 +1,13 @@
+body {
+	margin-left:5%;
+	margin-right:5%;
+	background: #948C75;
+}
+
+#output {
+	padding: 5px;
+}
+
+#output > * {
+	list-style-type:none;
+}

@@ -2,47 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Stop Facebook Gun Sales</title>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css"></link>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">	
 </head>
 <body>
-	<script>
-	window.data = null;
-	window.fbAsyncInit = function() {
-		var myToken = null;
-		FB.init({
-			appId      : 'XXXXXXXXXXXX',
-			xfbml      : true,
-			version    : 'v2.6'
-		});
-		FB.getLoginStatus(function(response) {
-			if (response.status === 'connected') {
-				//myToken = FB.getAuthResponse()['accessToken'];
-				FB.api('/search?q=AR15&type=page', function (response) {
-					response.data.forEach(function(d){
-						$(output).append('<li>' + d.name + '</li>');
-					});
-				});
-			}
-			else {
-				FB.login();
-			}
-
-		});	
-	};
-
-	(function(d, s, id){
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) {return;}
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/sdk.js";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-
-	</script>
-	<div id="output">
+	<div class="container">
+		<H1> Help stop Facebook Gun Sales </H1>
+		<p> Lately Facebook has become a common way for people to sell firearms to each other direct without any oversite.  This is contentious for many reasons.  One is that it violates Facebooks terms.  Additionally it allows people to sell firearms while bypassing the controls that have been put in place to ensure weapons don't end up in the hands of dangerous individuals.  In an effort to help curb the sale of firearms on Facebook this application crawls Facebook to identify these transactions and so that they can be reported and shut down.  Please use this app to identify and report as many of these pages as possible.  Facebook will not be taking these pages down unless they are reported.
+		</p>
+		<script src="js/main.js"></script>
+		<H2> List of AR-15 themed Facebook pages </H2>
+		<div id="output">  </div>
+		<button type="button" class="btn btn-link" id="prev"> Prev </button>
+		<button type="button" class="btn btn-link" id="next"> Next </button>
 		<ul>
 		</ul>
 	</div>
 </body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 </html>
