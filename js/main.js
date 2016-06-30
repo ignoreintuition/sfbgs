@@ -47,7 +47,7 @@ function handlePostResponse(response){
 window.fbAsyncInit = function() {
 	var myToken = null;
 	FB.init({
-		appId      : '155081068243032',
+		appId      : 'XXXXXXXXXXXXXXXX',
 		xfbml      : true,
 		version    : 'v2.6'
 	});
